@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дівчата рулять! | стендап</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Oswald:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Настройка кастомных шрифтов в Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              oswald: ["Oswald", "sans-serif"],
+              montserrat: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="w-full mx-auto">
+      <main>
+        <section
+          class="w-full min-h-screen bg-[url('/img/hero.jpg')] bg-cover bg-center flex justify-center mx-auto"
+        >
+          <div class="flex flex-col justify-between py-20">
+            <!-- Логотип -->
+            <img
+              src="/img/logo.svg"
+              alt="Логотип"
+              class="w-3/4 max-w-xs pt-12 mx-auto"
+            />
+
+            <!-- Заголовок -->
+            <div class="gap-4 flex flex-col">
+              <a
+                href="#"
+                class="rounded-md font-montserrat bg-black px-12 py-2.5 text-lg text-white shadow-sm mx-auto tracking-wide hover:bg-[#9a1c13] transition-colors duration-500"
+                >Забронювати місце</a
+              >
+              <h3
+                class="font-montserrat text-xl text-white text-center font-light px-4 tracking-wide"
+              >
+                27.06.2025 | Irish Stroomi
+              </h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-gray-100 py-12 px-6 text-center mx-auto">
+          <h2 class="text-4xl font-oswald uppercase font-semibold mb-6">
+            Що на вас чекає?
+          </h2>
+          <p class="text-gray-700 font-montserrat mb-6 max-w-md mx-auto">
+            Це вечір, де кожна з нас згадає, як звучить власний сміх. Без
+            цензури, без упереджень — тільки правда, тепло і сміх. Коли світ
+            горить — ми запалюємо сцену.
+          </p>
+          <p
+            class="font-oswald uppercase font-semibold text-3xl text-[#9a1c13]"
+          >
+            Це більше, ніж стендап.
+          </p>
+        </section>
+
+        <section class="w-full bg-[#130504] py-12 px-6">
+          <h2
+            class="text-4xl font-oswald uppercase font-semibold mb-6 text-[#3d040a] mx-auto text-center"
+          >
+            Ми не пунктуальні,
+            <span
+              class="block text-[#dadada] font-montserrat font-light max-w-xs mx-auto text-3xl -mt-4"
+              >але ось план</span
+            >
+          </h2>
+          <ul role="list" class="divide-y divide-[#2b0007]">
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-x-6 py-5 justify-center">
+              <p class="text-[#dadada] shrink-0 text-right font-montserrat">
+                18:00
+              </p>
+              <div class="flex gap-x-4 flex items-center">
+                <img
+                  class="size-12 flex-none rounded-full bg-gray-50"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                />
+                <div class="flex-auto">
+                  <p
+                    class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide"
+                  >
+                    Олександра Вороніна
+                  </p>
+                  <p
+                    class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs"
+                  >
+                    Жарти про материнство, сімейні стосунки та кар'єру.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="py-12 bg-gray-100 text-center px-6">
+          <h2 class="text-2xl font-oswald">Місце проведення</h2>
+          <p
+            class="font-oswald uppercase font-semibold text-5xl text-[#9a1c13] mb-4"
+          >
+            Irish Stroomi
+          </p>
+          <p class="text-sm text-gray-600 mb-4">
+            Tuulemaa 20, Tallinn, Estonia
+          </p>
+          <a
+            href="https://www.google.com/maps/place/Irish+Stroomi/@59.4471261,24.6924694,20.82z/data=!4m15!1m8!3m7!1s0x46929389c334fbd5:0x15c8f1a93215a6a0!2sTuulemaa+tn+20,+10315+Tallinn!3b1!8m2!3d59.4472325!4d24.692749!16s%2Fg%2F11c1y8ks2r!3m5!1s0x469293452d183ccd:0x798f7f6a267e17b6!8m2!3d59.447054!4d24.6923495!16s%2Fg%2F11kqxqt8lh?entry=ttu&g_ep=EgoyMDI1MDYwOS4xIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            class="inline-block bg-white text-black font-montserrat px-6 py-2 rounded-md border-black-1 shadow hover:bg-[#130504] hover:text-[#dadada] transition-colors duration-500"
+          >
+            Відкрити на мапі
+          </a>
+        </section>
+
+        <section class="bg-white py-12 px-6 text-center max-w-xl mx-auto">
+          <h2 class="text-3xl font-oswald uppercase font-semibold mb-6">
+            Забронювати місце
+          </h2>
+          <div class="max-w-md mx-auto">
+            <p class="text-gray-600 font-montserrat">
+              Залишилось
+              <span id="seats-left" class="font-bold text-black">70</span>
+              місць.
+            </p>
+            <p class="mb-6 text-gray-600">
+              Можна забронювати до трьох місць — для себе і тих, хто теж
+              заслуговує на трохи сміху. Квиток коштує
+              <span id="seats-left" class="font-bold text-black">10 євро</span>
+              — розрахунок на вході, без передоплати.
+            </p>
+          </div>
+          <form id="booking-form" class="space-y-4">
+            <!-- Имя -->
+            <input
+              type="text"
+              name="name"
+              required
+              placeholder="Ваше ім’я"
+              class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
+            />
+
+            <!-- Телефон -->
+            <input
+              type="text"
+              name="phone"
+              required
+              placeholder="Телефон"
+              class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
+            />
+
+            <!-- Email -->
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Email"
+              class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
+            />
+
+            <!-- Радио: Скільки місць -->
+            <fieldset>
+              <legend class="text-gray-600 font-montserrat mb-2">
+                Скільки місць?
+              </legend>
+              <div
+                class="flex justify-center gap-6 text-gray-700 font-montserrat pb-5"
+              >
+                <div class="flex items-center gap-2">
+                  <input
+                    id="seats-1"
+                    name="seats"
+                    type="radio"
+                    value="1"
+                    required
+                    class="relative size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-[#9a1c13] checked:bg-[#9a1c13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9a1c13] disabled:border-[#9a1c13] disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                  />
+                  <label for="seats-1">1 місце</label>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <input
+                    id="seats-2"
+                    name="seats"
+                    type="radio"
+                    value="2"
+                    required
+                    class="relative size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-[#9a1c13] checked:bg-[#9a1c13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9a1c13] disabled:border-[#9a1c13] disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                  />
+                  <label for="seats-2">2 місця (я +1)</label>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <input
+                    id="seats-3"
+                    name="seats"
+                    type="radio"
+                    value="3"
+                    required
+                    class="relative size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-[#9a1c13] checked:bg-[#9a1c13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9a1c13] disabled:border-[#9a1c13] disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                  />
+                  <label for="seats-3">3 місця (я +2)</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Кнопка -->
+            <button
+              type="submit"
+              class="w-full bg-black text-white py-2 rounded-md hover:bg-[#9a1c13] font-montserrat transition hover:bg-[#9a1c13] transition-colors duration-500"
+            >
+              Надіслати заявку
+            </button>
+          </form>
+          <p
+            class="font-oswald uppercase font-semibold text-lg text-[#9a1c13] mt-10"
+          >
+            Забронюйте — і приходьте за настроєм!
+          </p>
+          <p
+            id="booking-success"
+            class="text-green-600 font-montserrat mt-4 hidden"
+          >
+            Дякуємо! Ми з вами зв'яжемось ❤️
+          </p>
+        </section>
+
+        <section
+          class="w-full h-80 bg-[url('/img/sit.jpg')] bg-contain bg-center bg-no-repeat bg-black flex justify-center mx-auto"
+          aria-hidden="true"
+        ></section>
+      </main>
+      <footer class="bg-black pb-24 text-center text-white">
+        <div class="max-w-md mx-auto">
+          <p class="font-montserrat mb-2 font-light">
+            Ділися враженнями у соцмережах з хештегом
+            <span class="text-[#9a1c13]">#divchata_ruliat</span> — хай світ
+            знає, як ми сміємось 💥
+          </p>
+          <p class="pt-12 text-center text-gray-500 font-light">
+            Залишились питання? Напишіть
+            <a
+              href="https://www.facebook.com/opuzikova"
+              target="_blank"
+              class="text-white font-regular hover:text-[#9a1c13] focus:text-[#9a1c13] transition duration-300"
+              >Оксані Пузіковій</a
+            >
+
+            або зателефонуйте:
+            <a
+              href="tel:+37200000000"
+              class="hover:text-[#9a1c13] transition duration-300"
+              >+37 2Х ХХ ХХ ХХ</a
+            >
+            <a
+              href="https://www.facebook.com/tenison.olga/"
+              target="_blank"
+              class="block text-white text-center pt-6 text-sm font-montserrat hover:text-[#9a1c13] focus:text-[#9a1c13] transition duration-300"
+            >
+              Дизайн і розробка — Ольга Тенісон, 2025 ©
+            </a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
