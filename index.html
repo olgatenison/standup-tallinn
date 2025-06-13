@@ -313,102 +313,115 @@
             <p class="mb-6 text-gray-600">
               Можна забронювати до трьох місць — для себе і тих, хто теж
               заслуговує на трохи сміху. Квиток коштує
-              <span id="seats-left" class="font-bold text-black">10 євро</span>
-              — розрахунок на вході, без передоплати.
+              <span class="font-bold text-black">10 євро</span> — розрахунок на
+              вході, без передоплати.
             </p>
           </div>
-          <form id="booking-form" class="space-y-4">
-            <!-- Имя -->
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Ваше ім’я"
-              class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-            />
+
+          <form
+            id="booking-form"
+            class="space-y-4"
+            id="booking-form"
+            novalidate
+          >
+            <!-- Ім’я -->
+            <div>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Ваше ім’я"
+                required
+                class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
+                oninput="validateName(this)"
+              />
+              <small id="error-name" class="text-red-500 text-sm hidden"
+                >Введіть ім’я</small
+              >
+            </div>
 
             <!-- Телефон -->
-            <input
-              type="text"
-              name="phone"
-              required
-              placeholder="Телефон"
-              class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-            />
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="Телефон"
+                required
+                class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
+                oninput="validatePhone(this)"
+              />
+              <small id="error-phone" class="text-red-500 text-sm hidden"
+                >Невірний номер</small
+              >
+            </div>
 
             <!-- Email -->
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Email"
-              class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-            />
+            <div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+                class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
+                oninput="validateEmail(this)"
+              />
+              <small id="error-email" class="text-red-500 text-sm hidden"
+                >Некоректна адреса</small
+              >
+            </div>
 
-            <!-- Радио: Скільки місць -->
+            <!-- Скільки місць -->
             <fieldset>
-              <legend class="text-gray-600 font-montserrat mb-2">
+              <legend
+                id="seats-legend"
+                class="text-gray-600 font-montserrat mb-2"
+              >
                 Скільки місць?
               </legend>
               <div
-                class="flex justify-center gap-6 text-gray-700 font-montserrat pb-5"
+                class="flex justify-center gap-6 text-gray-700 font-montserrat"
               >
-                <div class="flex items-center gap-2">
-                  <input
-                    id="seats-1"
-                    name="seats"
-                    type="radio"
-                    value="1"
-                    required
-                    class="relative size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-[#9a1c13] checked:bg-[#9a1c13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9a1c13] disabled:border-[#9a1c13] disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
-                  />
-                  <label for="seats-1">1 місце</label>
-                </div>
-
-                <div class="flex items-center gap-2">
-                  <input
-                    id="seats-2"
-                    name="seats"
-                    type="radio"
-                    value="2"
-                    required
-                    class="relative size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-[#9a1c13] checked:bg-[#9a1c13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9a1c13] disabled:border-[#9a1c13] disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
-                  />
-                  <label for="seats-2">2 місця (я +1)</label>
-                </div>
-
-                <div class="flex items-center gap-2">
-                  <input
-                    id="seats-3"
-                    name="seats"
-                    type="radio"
-                    value="3"
-                    required
-                    class="relative size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-[#9a1c13] checked:bg-[#9a1c13] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9a1c13] disabled:border-[#9a1c13] disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
-                  />
-                  <label for="seats-3">3 місця (я +2)</label>
-                </div>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="seats" value="1" required />1 місце
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="seats" value="2" required />2 місця
+                  (я +1)
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="seats" value="3" required />3 місця
+                  (я +2)
+                </label>
               </div>
             </fieldset>
 
-            <!-- Кнопка -->
             <button
               type="submit"
-              class="w-full bg-black text-white py-2 rounded-md hover:bg-[#9a1c13] font-montserrat transition hover:bg-[#9a1c13] transition-colors duration-500"
+              class="w-full bg-black text-white py-2 rounded-md hover:bg-[#9a1c13] font-montserrat transition"
             >
               Надіслати заявку
             </button>
+
+            <p
+              id="booking-success"
+              class="text-green-600 font-montserrat mt-4 hidden"
+            >
+              Дякуємо! Ми з вами зв'яжемось ❤️
+            </p>
+            <p
+              id="fully-booked-msg"
+              class="text-red-600 font-montserrat mt-4 hidden"
+            >
+              На жаль, всі місця вже заброньовані. Пощастить наступного разу!
+            </p>
           </form>
+
           <p
             class="font-oswald uppercase font-semibold text-lg text-[#9a1c13] mt-10"
           >
             Забронюйте — і приходьте за настроєм!
-          </p>
-          <p
-            id="booking-success"
-            class="text-green-600 font-montserrat mt-4 hidden"
-          >
-            Дякуємо! Ми з вами зв'яжемось ❤️
           </p>
         </section>
 
@@ -450,5 +463,6 @@
         </div>
       </footer>
     </div>
+    <script src="js/form.js"></script>
   </body>
 </html>
