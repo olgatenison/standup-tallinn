@@ -1,6 +1,6 @@
 /* -------------------- НАЛАШТУЙ -------------------- */
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzLRgy1HssLr1RcpP17eAiTkBUxarCmEYpPNY4JLIrsMSC2iBgG55H3giWTxosfbC8j/exec";
+  "https://script.google.com/macros/s/AKfycbzvBZKt91LuWEDSH_8vn66LgXANvRkc8gvX7GuRBBEYiHqen578PvN-4uyAfHbY5rtN/exec";
 
 const TOTAL_SEATS = 10;
 
