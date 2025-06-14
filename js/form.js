@@ -1,6 +1,6 @@
 /* -------------------- НАЛАШТУЙ -------------------- */
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzOMuwkLePSfI1jeOoqx-nKVUaNr33vVBRewFba2XnZzUblv548Dj5SfbjezQgOcp5N/exec";
+  "https://script.google.com/macros/s/AKfycbycSSNA99DkGCWlRpF2icbI-2t5zay4xzFHQPm-Hrk7dt-oEoUZIOjqW0OusxeQhQ6z/exec";
 
 /* -------------------------------------------------- */
 
