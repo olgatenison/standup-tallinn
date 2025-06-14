@@ -1,4 +1,4 @@
-import fetch from "node-fetch";пшеimport fetch from 'node-fetch';
+import fetch from "node-fetch";
 
 exports.handler = async function (event, context) {
   const scriptUrl = "https://script.google.com/macros/s/ТУТ_ID/exec";
