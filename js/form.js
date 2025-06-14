@@ -1,12 +1,11 @@
 /* -------------------- НАЛАШТУЙ -------------------- */
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzjnWePUt8msmFYDB43_pYR3yUZYMcVNw1ftMxxylyTQf72eKiCTsSfxg5chzdsyrOd/exec";
-
-const TOTAL_SEATS = 10;
+  "https://script.google.com/macros/s/AKfycbyuQ0cfD6z6EaZ0OA1-8gs_GE43wp8DNwYKllNfv-YABeCUblSWLhJaibiskbqZIdnM/exec";
 
 /* -------------------------------------------------- */
 
-let seatsTaken = 0; // лічба локально (для UX)
+let TOTAL_SEATS; // ← отримаємо з API
+let seatsTaken = 0; // локальна змінна для UX
 
 const form = document.getElementById("booking-form");
 const successBox = document.getElementById("booking-success");
@@ -34,6 +33,7 @@ function showError(el, msg = "") {
   el.classList.remove("hidden");
   if (msg) el.textContent = msg;
 }
+
 function hideError(el) {
   el.classList.add("hidden");
 }
@@ -99,14 +99,12 @@ form.addEventListener("submit", async (e) => {
 
   if (!valid || !seatRad) return;
 
-  /* локальна перевірка ліміту */
   const seatsReq = parseInt(seatRad.value, 10);
   if (seatsTaken + seatsReq > TOTAL_SEATS) {
     alert("На жаль, недостатньо вільних місць 😢");
     return;
   }
 
-  /* готуємо payload */
   const payload = {
     name: nameIn.value.trim(),
     phone: phoneIn.value.trim(),
@@ -114,7 +112,6 @@ form.addEventListener("submit", async (e) => {
     seats: seatsReq,
   };
 
-  /* disable, щоб не спамили */
   submitBtn.disabled = true;
   submitBtn.textContent = "Надсилаємо…";
 
@@ -127,13 +124,14 @@ form.addEventListener("submit", async (e) => {
     const data = await res.json();
 
     if (data.success) {
-      seatsTaken += seatsReq; // оновлюємо локально
-      updateSeatsLeft(); // ...і на сторінці
+      seatsTaken += seatsReq;
+      updateSeatsLeft();
 
       form.reset();
-      successBox.classList.remove("hidden", "opacity-0");
-      successBox.classList.add("animate-fade-in");
-      setTimeout(() => successBox.classList.add("opacity-0"), 4000);
+      successBox.classList.remove("hidden");
+      setTimeout(() => {
+        successBox.classList.add("hidden");
+      }, 4000);
     } else {
       alert(data.message || "Помилка збереження");
     }
@@ -146,16 +144,20 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-/* ---------- ПЕРШИЙ рендер ---------- */
-updateSeatsLeft();
-
-/* ---------- ОТРИМАННЯ АКТУАЛЬНОЇ КІЛЬКОСТІ ЗАЙНЯТИХ МІСЦЬ ---------- */
+/* ---------- ОТРИМАННЯ КІЛЬКОСТІ З API ---------- */
 async function fetchTakenSeats() {
   try {
     const res = await fetch(API_URL);
     const data = await res.json();
-    if (typeof data.taken === "number") {
+
+    if (typeof data.taken === "number" && typeof data.total === "number") {
       seatsTaken = data.taken;
+      TOTAL_SEATS = data.total;
+      updateSeatsLeft();
+    } else if (typeof data.taken === "number") {
+      // fallback, якщо total не приходить
+      seatsTaken = data.taken;
+      TOTAL_SEATS = 70; // запасний варіант
       updateSeatsLeft();
     }
   } catch (err) {
@@ -163,5 +165,5 @@ async function fetchTakenSeats() {
   }
 }
 
-// Виклик при завантаженні
+/* ---------- ПЕРШИЙ ЗАПУСК ---------- */
 fetchTakenSeats();
