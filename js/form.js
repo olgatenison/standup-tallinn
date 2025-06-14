@@ -1,6 +1,5 @@
 /* -------------------- НАЛАШТУЙ -------------------- */
-const API_URL =
-  "https://script.google.com/macros/s/AKfycbxOMqcEb5fCOoyGm6JSeE5xwabohbkfOMcRpnFOGiElnAnkBTtXAIny5TsKF03JF_Bf/exec";
+const API_URL = "/.netlify/functions/proxy";
 
 /* -------------------------------------------------- */
 
