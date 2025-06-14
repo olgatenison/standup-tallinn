@@ -1,66 +1,44 @@
-const fetch = require("node-fetch");
+const fetch = require("node-fetch"); // або import, якщо модулі
 
-exports.handler = async function (event) {
-  const scriptUrl =
-    "https://script.google.com/macros/s/AKfycbxOMqcEb5fCOoyGm6JSeE5xwabohbkfOMcRpnFOGiElnAnkBTtXAIny5TsKF03JF_Bf/exec";
+exports.handler = async function (event, context) {
+  const scriptUrl = "https://script.google.com/macros/s/ТУТ_ID/exec";
 
-  const headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-  };
-
-  if (event.httpMethod === "OPTIONS") {
+  if (event.httpMethod !== "POST") {
     return {
-      statusCode: 200,
-      headers,
-      body: "",
+      statusCode: 405,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({ message: "Method Not Allowed" }),
     };
   }
 
   try {
-    if (event.httpMethod === "POST") {
-      const payload = JSON.parse(event.body);
+    const payload = JSON.parse(event.body);
 
-      const response = await fetch(scriptUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+    const response = await fetch(scriptUrl, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      const data = await response.json();
-
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify(data),
-      };
-    }
-
-    if (event.httpMethod === "GET") {
-      const response = await fetch(scriptUrl);
-      const data = await response.json();
-
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify(data),
-      };
-    }
+    const data = await response.json();
 
     return {
-      statusCode: 405,
-      headers,
-      body: JSON.stringify({ message: "Method Not Allowed" }),
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+      body: JSON.stringify(data),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      headers,
-      body: JSON.stringify({
-        message: "Server Error",
-        error: error.message,
-      }),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({ message: "Server Error", error: error.message }),
     };
   }
 };
