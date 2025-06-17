@@ -28,7 +28,18 @@ This project allows visitors to:
 
 ## 📁 Project Structure
 
-<pre> ``` standup-tallinn/ ├── index.html # Landing page ├── css/ │ └── styles.css # Additional styles ├── js/ │ ├── form.js # Form handling, validation, Firestore logic │ ├── performers.js # Optional dynamic list of performers │ └── firebase-init.js # Firebase configuration & export ├── img/ # Assets (logo, background images) └── .env / .headers / netlify.toml etc. ``` </pre>
+<pre> 
+``` standup-tallinn/ 
+├── index.html # Landing page 
+├── css/ 
+│ └── styles.css # Additional styles 
+├── js/ 
+│ ├── form.js # Form handling, validation, Firestore logic 
+│ ├── performers.js # Optional dynamic list of performers 
+│ └── firebase-init.js # Firebase configuration & export 
+└── img/ # Assets (logo, background images) 
+ ``` 
+ </pre>
 
 ## ✅ Features
 
