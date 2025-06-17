@@ -29,7 +29,7 @@ This project allows visitors to:
 ## 📁 Project Structure
 
 <pre> 
-``` standup-tallinn/ 
+standup-tallinn/ 
 ├── index.html # Landing page 
 ├── css/ 
 │ └── styles.css # Additional styles 
@@ -38,7 +38,7 @@ This project allows visitors to:
 │ ├── performers.js # Optional dynamic list of performers 
 │ └── firebase-init.js # Firebase configuration & export 
 └── img/ # Assets (logo, background images) 
- ``` 
+
  </pre>
 
 ## ✅ Features
