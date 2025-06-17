@@ -28,15 +28,7 @@ This project allows visitors to:
 
 ## 📁 Project Structure
 
-standup-tallinn/
-├── index.html # Landing page
-├── css/
-│ └── styles.css # Additional styles
-├── js/
-│ ├── form.js # Form handling, validation, Firestore logic
-│ ├── performers.js # Optional dynamic list of performers
-│ └── firebase-init.js # Firebase configuration & export
-├── img/ # Assets (logo, background images)
+<pre> ``` standup-tallinn/ ├── index.html # Landing page ├── css/ │ └── styles.css # Additional styles ├── js/ │ ├── form.js # Form handling, validation, Firestore logic │ ├── performers.js # Optional dynamic list of performers │ └── firebase-init.js # Firebase configuration & export ├── img/ # Assets (logo, background images) └── .env / .headers / netlify.toml etc. ``` </pre>
 
 ## ✅ Features
 
@@ -54,12 +46,6 @@ standup-tallinn/
 2. Add your Firebase config in `firebase-init.js`
 3. Deploy to Netlify or run locally via Live Server
 4. (Optional) Set up Google Apps Script for exporting bookings to Sheets
-
----
-
-## 📄 License
-
-MIT — use freely and make people laugh 🌈
 
 ---
 
