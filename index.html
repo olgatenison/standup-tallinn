@@ -145,7 +145,6 @@
                 placeholder="Ваше ім’я"
                 required
                 class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-                oninput="validateName(this)"
               />
               <small id="error-name" class="text-red-500 text-sm hidden"
                 >Введіть ім’я</small
@@ -161,7 +160,6 @@
                 placeholder="Телефон"
                 required
                 class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-                oninput="validatePhone(this)"
               />
               <small id="error-phone" class="text-red-500 text-sm hidden"
                 >Невірний номер</small
@@ -177,7 +175,6 @@
                 placeholder="Email"
                 required
                 class="w-full border border-gray-300 rounded-md px-4 py-2 font-montserrat"
-                oninput="validateEmail(this)"
               />
               <small id="error-email" class="text-red-500 text-sm hidden"
                 >Некоректна адреса</small
@@ -218,7 +215,7 @@
               id="booking-success"
               class="text-green-600 font-montserrat mt-4 hidden"
             >
-              Дякуємо! Ми з вами зв'яжемось ❤️
+              Дякуємо! Чекаємо на зустріч ❤️
             </p>
             <p
               id="fully-booked-msg"
@@ -273,7 +270,8 @@
         </div>
       </footer>
     </div>
-    <script src="js/performers.js"></script>
-    <script src="js/form.js"></script>
+    <script type="module" src="js/firebase-init.js"></script>
+    <script type="module" src="js/performers.js"></script>
+    <script type="module" src="js/form.js"></script>
   </body>
 </html>

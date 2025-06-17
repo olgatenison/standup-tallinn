@@ -1,10 +1,7 @@
-/* -------------------- НАЛАШТУЙ -------------------- */
-const API_URL = "/.netlify/functions/proxy";
+import { db, addDoc, collection, getDocs } from "./firebase-init.js";
 
-/* -------------------------------------------------- */
-
-let TOTAL_SEATS; // ← отримаємо з API
-let seatsTaken = 0; // локальна змінна для UX
+const MAX_SEATS = 70;
+let seatsTaken = 0;
 
 const form = document.getElementById("booking-form");
 const successBox = document.getElementById("booking-success");
@@ -12,9 +9,8 @@ const seatsLeftEl = document.getElementById("seats-left");
 const submitBtn = form.querySelector("button[type='submit']");
 const fullMsg = document.getElementById("fully-booked-msg");
 
-/* ---------- HELPERS ---------- */
 function updateSeatsLeft() {
-  const left = Math.max(0, TOTAL_SEATS - seatsTaken);
+  const left = Math.max(0, MAX_SEATS - seatsTaken);
   seatsLeftEl.textContent = left;
 
   if (left === 0) {
@@ -32,12 +28,10 @@ function showError(el, msg = "") {
   el.classList.remove("hidden");
   if (msg) el.textContent = msg;
 }
-
 function hideError(el) {
   el.classList.add("hidden");
 }
 
-/* ---------- ВАЛІДАЦІЯ ---------- */
 function validateName(input) {
   const err = document.getElementById("error-name");
   const ok = input.value.trim().length >= 2;
@@ -45,7 +39,6 @@ function validateName(input) {
   input.classList.toggle("border-red-500", !ok);
   return ok;
 }
-
 function validatePhone(input) {
   const err = document.getElementById("error-phone");
   const ok = /^[+0-9\s()-]{7,20}$/.test(input.value.trim());
@@ -53,7 +46,6 @@ function validatePhone(input) {
   input.classList.toggle("border-red-500", !ok);
   return ok;
 }
-
 function validateEmail(input) {
   const err = document.getElementById("error-email");
   const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
@@ -61,7 +53,6 @@ function validateEmail(input) {
   input.classList.toggle("border-red-500", !ok);
   return ok;
 }
-
 function validateSeats() {
   const legend = document.getElementById("seats-legend");
   const selected = form.querySelector("input[name='seats']:checked");
@@ -74,14 +65,21 @@ function validateSeats() {
   return true;
 }
 
-/* ---------- LIVE-зняття помилки seats ---------- */
 form.querySelectorAll("input[name='seats']").forEach((r) =>
   r.addEventListener("change", () => {
     document.getElementById("seats-legend").textContent = "Скільки місць?";
   })
 );
 
-/* ---------- ВІДПРАВКА ---------- */
+async function countTakenSeats() {
+  const snapshot = await getDocs(collection(db, "bookings"));
+  let count = 0;
+  snapshot.forEach((doc) => {
+    count += parseInt(doc.data().seats || 0);
+  });
+  return count;
+}
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -96,10 +94,12 @@ form.addEventListener("submit", async (e) => {
     validateEmail(mailIn) &&
     validateSeats();
 
-  if (!valid || !seatRad) return;
+  if (!valid) return;
 
   const seatsReq = parseInt(seatRad.value, 10);
-  if (seatsTaken + seatsReq > TOTAL_SEATS) {
+  const currentTaken = await countTakenSeats();
+
+  if (currentTaken + seatsReq > MAX_SEATS) {
     alert("На жаль, недостатньо вільних місць 😢");
     return;
   }
@@ -109,31 +109,22 @@ form.addEventListener("submit", async (e) => {
     phone: phoneIn.value.trim(),
     email: mailIn.value.trim(),
     seats: seatsReq,
+    createdAt: new Date().toISOString(),
   };
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Надсилаємо…";
 
   try {
-    const res = await fetch(API_URL, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: { "Content-Type": "application/json" },
-    });
-    const data = await res.json();
+    await addDoc(collection(db, "bookings"), payload);
+    seatsTaken = currentTaken + seatsReq;
+    updateSeatsLeft();
 
-    if (data.success) {
-      seatsTaken += seatsReq;
-      updateSeatsLeft();
-
-      form.reset();
-      successBox.classList.remove("hidden");
-      setTimeout(() => {
-        successBox.classList.add("hidden");
-      }, 4000);
-    } else {
-      alert(data.message || "Помилка збереження");
-    }
+    form.reset();
+    successBox.classList.remove("hidden");
+    setTimeout(() => {
+      successBox.classList.add("hidden");
+    }, 4000);
   } catch (err) {
     alert("Не вдалося відправити заявку. Спробуйте пізніше.");
     console.error(err);
@@ -143,26 +134,9 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-/* ---------- ОТРИМАННЯ КІЛЬКОСТІ З API ---------- */
-async function fetchTakenSeats() {
-  try {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-
-    if (typeof data.taken === "number" && typeof data.total === "number") {
-      seatsTaken = data.taken;
-      TOTAL_SEATS = data.total;
-      updateSeatsLeft();
-    } else if (typeof data.taken === "number") {
-      // fallback, якщо total не приходить
-      seatsTaken = data.taken;
-      TOTAL_SEATS = 70; // запасний варіант
-      updateSeatsLeft();
-    }
-  } catch (err) {
-    console.warn("Не вдалося отримати кількість місць з API:", err);
-  }
+async function initSeats() {
+  seatsTaken = await countTakenSeats();
+  updateSeatsLeft();
 }
 
-/* ---------- ПЕРШИЙ ЗАПУСК ---------- */
-fetchTakenSeats();
+initSeats();
