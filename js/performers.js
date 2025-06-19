@@ -69,14 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .map(
       (p) => `
         <li class="flex items-center gap-x-6 py-5 justify-center ">
-          <p class="text-[#dadada] shrink-0 text-right font-montserrat">${p.time}</p>
+      
           <div class="flex gap-x-4 items-center">
             <img
               class="size-16 flex-none rounded-full bg-gray-50"
               src="${p.img}"
               alt="Фото ${p.name}"
             />
-            <div class="flex-auto w-60">
+            <div class="flex-auto max-w-60">
               <p class="text-xl font-oswald uppercase font-semibold text-[#ae241a] tracking-wide">${p.name}</p>
               <p class="mt-1 text-[#dadada] font-montserrat font-light max-w-xs">${p.desc}</p>
             </div>
