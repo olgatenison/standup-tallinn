@@ -1,6 +1,6 @@
 import { db, addDoc, collection, getDocs } from "./firebase-init.js";
 
-const MAX_SEATS = 70;
+const MAX_SEATS = 62;
 let seatsTaken = 0;
 
 const form = document.getElementById("booking-form");

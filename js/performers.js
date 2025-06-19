@@ -1,27 +1,58 @@
 const performers = [
   {
-    time: "18:00",
+    time: "",
+    name: "Відчиняємо двері",
+    img: "img/start.jpg",
+    desc: "18:30 Заходьте сміливо — місце вже чекає на ваш сміх!",
+  },
+  {
+    time: " ",
+    name: "PuzikOVa",
+    img: "img/puzikova.jpg",
+    desc: "Топлю за дівчат. Не переплутай",
+  },
+  {
+    time: " ",
+    name: "Галіде",
+    img: "img/halia.jpg",
+    desc: "Гумор такий чорний та гострий, як твоє минуле. Жарти про циклічність життя. Родився, женився, помер.",
+  },
+  {
+    time: " ",
     name: "Олександра Вороніна",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    desc: "Жарти про материнство, сімейні стосунки та кар'єру.",
+    img: "img/mafia.jpg",
+    desc: "Міссіс Мафія - організую все від проблем до злочинності",
   },
   {
-    time: "18:20",
-    name: "Олександра Вороніна 2",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    desc: "І ще жарти — бо їх багато.",
+    time: " ",
+    name: "Галя Шабаєва",
+    img: "img/galia.jpg",
+    desc: "З досвыдом еміграції, адаптації, істерики й імпровізації. Тримаюсь, бо впасти ніколи.",
+  },
+
+  {
+    time: " ",
+    name: "Марія Черкашина",
+    img: "img/mar.jpg",
+    desc: "Алергія на дурість — одразу покривається сарказмом. Гумор про наше, жіноче.",
   },
   {
-    time: "18:00",
-    name: "Олександра Вороніна",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    desc: "Жарти про материнство, сімейні стосунки та кар'єру.",
+    time: " ",
+    name: "Tina не Latina.",
+    img: "img/tiina.jpg",
+    desc: "А хлопці теж мають 'ці дні'?",
   },
   {
-    time: "18:20",
-    name: "Олександра Вороніна 2",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    desc: "І ще жарти — бо їх багато.",
+    time: " ",
+    name: "VRednaja!",
+    img: "img/tania.jpg",
+    desc: "З норовом, тонким стоьбом і бронебойною внутрішньою силою.",
+  },
+  {
+    time: "",
+    name: "Кінець — але не прощання",
+    img: "img/start.jpg",
+    desc: "Роздача автографів, селфі й рецептів виживання після стендапу.",
   },
 ];
 
@@ -36,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="text-[#dadada] shrink-0 text-right font-montserrat">${p.time}</p>
           <div class="flex gap-x-4 items-center">
             <img
-              class="size-12 flex-none rounded-full bg-gray-50"
+              class="size-16 flex-none rounded-full bg-gray-50"
               src="${p.img}"
               alt="Фото ${p.name}"
             />

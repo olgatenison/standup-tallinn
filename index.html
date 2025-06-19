@@ -15,6 +15,27 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Фавиконы -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
     <!-- Настройка кастомных шрифтов в Tailwind -->
     <script>
       tailwind.config = {
@@ -33,9 +54,11 @@
     <div class="w-full mx-auto">
       <main>
         <section
-          class="w-full min-h-screen bg-[url('/img/hero.jpg')] bg-cover bg-center flex justify-center mx-auto"
+          class="w-full min-h-screen bg-[url('/img/hero.jpg')] lg:bg-[url('/img/desk.jpg')] bg-cover bg-center flex justify-center mx-auto"
         >
-          <div class="flex flex-col justify-between py-20">
+          <div
+            class="flex flex-col justify-between py-20 items-center lg:items-start"
+          >
             <!-- Логотип -->
             <img
               src="/img/logo.svg"
@@ -53,7 +76,7 @@
               <h3
                 class="font-montserrat text-xl text-white text-center font-light px-4 tracking-wide"
               >
-                27.06.2025 | Irish Stroomi
+                27.06.2025 | Imo Lounge
               </h3>
             </div>
           </div>
@@ -98,13 +121,13 @@
           <p
             class="font-oswald uppercase font-semibold text-5xl text-[#9a1c13] mb-4"
           >
-            Irish Stroomi
+            Imo Lounge
           </p>
           <p class="text-sm text-gray-600 mb-4">
-            Tuulemaa 20, Tallinn, Estonia
+            Lootsi tn 8, Tallinn, Estonia
           </p>
           <a
-            href="https://www.google.com/maps/place/Irish+Stroomi/@59.4471261,24.6924694,20.82z/data=!4m15!1m8!3m7!1s0x46929389c334fbd5:0x15c8f1a93215a6a0!2sTuulemaa+tn+20,+10315+Tallinn!3b1!8m2!3d59.4472325!4d24.692749!16s%2Fg%2F11c1y8ks2r!3m5!1s0x469293452d183ccd:0x798f7f6a267e17b6!8m2!3d59.447054!4d24.6923495!16s%2Fg%2F11kqxqt8lh?entry=ttu&g_ep=EgoyMDI1MDYwOS4xIKXMDSoASAFQAw%3D%3D"
+            href="https://www.google.com/maps/place/%D0%98%D0%BC%D0%BE+%D0%9B%D0%B0%D1%83%D0%BD%D0%B6/@59.4420346,24.766424,17z/data=!3m1!4b1!4m6!3m5!1s0x46929347a52b29d9:0xc4775cc3aadfd54b!8m2!3d59.4420346!4d24.766424!16s%2Fg%2F11k589g3gz?entry=ttu&g_ep=EgoyMDI1MDYxNi4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             class="inline-block bg-white text-black font-montserrat px-6 py-2 rounded-md border-black-1 shadow hover:bg-[#130504] hover:text-[#dadada] transition-colors duration-500"
           >
@@ -237,7 +260,7 @@
           aria-hidden="true"
         ></section>
       </main>
-      <footer class="bg-black pb-24 text-center text-white">
+      <footer class="bg-black pb-12 text-center text-white px-6">
         <div class="max-w-md mx-auto">
           <p class="font-montserrat mb-2 font-light">
             Ділися враженнями у соцмережах з хештегом
@@ -253,16 +276,15 @@
               >Оксані Пузіковій</a
             >
 
-            або зателефонуйте:
-            <a
+            <!-- <a
               href="tel:+37200000000"
               class="hover:text-[#9a1c13] transition duration-300"
               >+37 2Х ХХ ХХ ХХ</a
-            >
+            > -->
             <a
               href="https://www.facebook.com/tenison.olga/"
               target="_blank"
-              class="block text-white text-center pt-6 text-sm font-montserrat hover:text-[#9a1c13] focus:text-[#9a1c13] transition duration-300"
+              class="block text-white text-center pt-2 text-sm font-montserrat hover:text-[#9a1c13] focus:text-[#9a1c13] transition duration-300"
             >
               Дизайн і розробка — Ольга Тенісон, 2025 ©
             </a>
